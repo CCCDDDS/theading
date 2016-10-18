@@ -1,0 +1,4 @@
+#将dest目录加到忽略文件
+/dest
+#将node_modules添加到忽略文件
+/node_modules
