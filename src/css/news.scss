@@ -1,0 +1,163 @@
+html,body,div,ul,li,p,ol,h1,h2,,h3,nav{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 15.625vw;
+}
+body{
+    width: 6.4rem;
+}
+header{
+    width: 100%;
+      position: fixed;
+      left: 0;
+      top: 0;
+    #h_t{
+        height:0.88rem;
+        background-color: #D43D3D;
+        display: flex;
+        align-items: center;
+        a{
+            line-height: 0.88rem;
+            font-size: 0.4rem;
+            font-weight: 800;
+            width: 0.5rem;
+            text-decoration: none;
+            height: 0.5rem;
+           
+            background: url(../img/icon-1.png) no-repeat;
+            i{
+                line-height: 0.88rem;
+            };
+        }
+        .l{
+            background-position: 0 0rem;
+            margin-left: 0.3rem;
+            background-size: 1.44rem;
+            
+        }
+        .r{
+            background-position: -0.95rem -0.03rem;
+            margin-right: 0.4rem;
+            height: 0.44rem;
+            background-size: 1.44rem;
+        }
+        h2{
+            text-align: center;
+            flex: 1;
+            font-size: 0.45rem;
+            color: #fff;
+            text-shadow: 0 0 2px  #fff ;
+            line-height: 0.88rem;
+            align-items: center;
+            display: inline-block;
+            vertical-align: middle;
+            span{
+                margin-left: 0.2rem;
+                font-size: 0.4rem;
+                vertical-align: middle;
+                width: 0.46rem;
+                height: 0.5rem;
+                display: inline-block;
+                background: url(../img/icon-1.png) no-repeat;
+                background-position: -0.5rem -0.04rem;
+                background-size: 1.44rem;
+            }
+        }    
+    }
+    
+    nav{
+        height: 0.52rem;
+        background-color: #F4F5F6;
+        padding: 0.1rem 0;
+        ul{ 
+            font-size: 0.25rem;
+            li{
+                list-style: none;
+                float: left;
+                margin-right: 0.1rem;
+                a{
+                    color: #000000;
+                    display: block;
+                    line-height: 0.52rem;
+                    text-decoration: none;
+                     padding: 0 0.02rem;
+                }
+            }
+        }
+    }
+}
+section{
+    margin-top: 1.6rem;
+    div{
+        border-top: 1px dashed #000;
+        padding: 0.1rem 0.1rem;
+    }
+
+    h2{
+        font-size: 0.24rem;
+        padding: 0.2rem;
+        margin-top: 0.25rem;
+        font-weight: 100;
+        a{
+            line-height: 0.35rem;
+        }
+    }
+    p{
+        margin-top: 0.2rem;
+        display: flex;
+        justify-content: space-between;
+        span{
+            text-align: center;
+            font-size: 0.18rem;
+            flex: 1;
+            display: block;
+        }
+    }
+}
+#box{
+    display: flex;
+    border: none;
+    padding: 0;
+   
+    h2{
+        flex: 1;
+        line-height: 0.3rem;
+        padding: 0.1rem 0.1rem;
+        a{
+            color: #000;
+            text-decoration: none;
+            font-family: arial;
+            display: block;
+           
+        }
+    }
+    p{
+        flex: 1;
+        img{    
+                flex: 1;
+                height: 1.26rem;
+                display: block;
+                border: 1px solid #f1f1f1;
+                padding: 1px;
+            }
+    }
+}
+@font-face {font-family: 'iconfont';
+    src: url('../font/iconfont.eot'); /* IE9*/
+    src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../font/iconfont.woff') format('woff'), /* chrome、firefox */
+    url('../font/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../font/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont{
+    color: #fff;
+    font-family:"iconfont" !important;
+    font-size:66px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+    text-decoration: none;
+    text-align: center;
+    }
