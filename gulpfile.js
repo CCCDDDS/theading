@@ -23,7 +23,7 @@ var cssnano = require('cssnano');
 var path = {
 	"src" : {
 		"css" : [
-			"./src/css/demo.scss"
+			"./src/css/video.scss"
 		],
 		"js" : [
 			"./src/**/**.js"
@@ -72,7 +72,7 @@ gulp.task("css",function(){
 gulp.task("js",function(){
 	//把需要合并压缩的 js 文件列出来
 	gulp.src(path.src.js)
-		.pipe(minJs())  //压缩 js
+//		.pipe(minJs())  //压缩 js
 		.pipe(gulp.dest(path.dest)); //输出
 });
 

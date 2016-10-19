@@ -8,12 +8,13 @@ var app = express();
 
 // req : request 浏览器发送给服务器的对象
 // res : response 服务器发送给浏览器的对象
-app.route('/api').get(function(req, res){
+app.route('/api/movie').get(function(req, res){
 	request.post({
-		url : "http://op.juhe.cn/onebox/weather/query",
+		url : "http://op.juhe.cn/onebox/movie/pmovie",
 		formData:{
-			cityname : "北京",
-			key : "48f0c60d463f680e427d47cee43b8bc7"
+			dtype:"json",
+			key:"4200ddc0f6d8934c315b3b20fb575b97",
+			city:"北京"
 		}
 		/**
 		 * error : 判断结果是否错误
