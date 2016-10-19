@@ -9,13 +9,15 @@ var app = express();
 // req : request 浏览器发送给服务器的对象
 // res : response 服务器发送给浏览器的对象
 app.route('/api/movie').get(function(req, res){
+	//接收js使用ajax发送的数据
+	var query = req.query;
+	var url = query.url;
+	//删除url参数，剩余的就是想接口发送的数据
+	delete query.url;
+	
 	request.post({
-		url : "http://op.juhe.cn/onebox/movie/pmovie",
-		formData:{
-			dtype:"json",
-			key:"4200ddc0f6d8934c315b3b20fb575b97",
-			city:"北京"
-		}
+		url : url,
+		formData:query
 		/**
 		 * error : 判断结果是否错误
 		 * response : 请求的头文件信息

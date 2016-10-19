@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5" />
+		<meta charset="UTF-8">
+		<title>视频</title>
+		<script src="../js/zepto.min.js"></script>
+		<link rel="stylesheet" href="../css/video.css" />
+	</head>
+	<body>
+		<header>
+			<span></span>
+			<p>今日最新</p>
+		</header>
+		<div class="content_wrap">
+			<!--点击电影时弹出满屏的一个div，是该电影的详情-->
+			<div class="detalis">
+				<div class="fix"></div>
+				<button class="close"></button>
+				<div class="txt">
+					<img src="img/1.jpg" alt="" />
+					<p><span>《湄公河行动》改编自“10.5湄公河大案”，讲述了一桩悲剧背后所隐藏的惊天阴谋。2011年10月5..",</span><a href="#">查看全部</a></p>
+				</div>
+			</div>
+			<!--//输入城市名称进行搜索：-->
+			<div class="btn">
+				<div>
+					<label for="search">
+						<input type="search" placeholder="输入城市名字搜索最新电影" id="search"/>
+						<button class="s_video"></button>
+					</label>
+				</div>
+			</div>
+			<!--//搜索到的电影-->
+			<div class="content">
+				<section data-num="1">
+					<div class="cont">
+						<div class="pic"><a href="#"><img src="img/1.jpg" alt="" /></a></div>
+						<div class="text">
+							<h1>名称：<a href="javascript:;">圆梦巨人</a></h1>
+							<h3>上映：<a href="javascript:;">2016年10月14日</a></h3>
+							<h3>场数：<a href="javascript:;">今日好多家上映</a></h3>
+							<h3>导演：<a href="javascript:;">史蒂文·斯皮尔伯格</a></h3>
+							<h3>类型：<a href="javascript:;">冒险、家庭、奇幻</a></h3>
+							<h3>7.2分</h3>
+							<h3>主演：<a href="javascript:;">鲁比·巴恩希尔、马克·里朗斯、佩内洛普·威尔顿、杰梅·克莱门特</a></h3>
+						</div>
+					</div>
+				</section>
+				
+			</div>
+		</div>
+		
+	</body>
+	<script src="js/video.js"></script>
+	<script>
+		
+		$(function(){
+			//点击事件
+			var city ="北京";
+			
+			$(function(){
+				//鼠标点击找当地正在上映电影
+				$(".s_video").on("tap",function(){
+					var val = $(this).siblings("input").val();
+					if(val){
+						city = val;
+						apiMovie();
+					}
+				})
+				
+				//点击close关闭
+				$(".close").on("tap",function(){
+					$(".detalis").css({
+						'display':'none'
+					})
+				})
+				
+				//点击图片时，详情出现
+				$(".content").on("tap","img",function(){
+					$(".detalis").css({
+						'display':'block'
+					})
+					//获取图片信息
+					$(".txt img")[0].src = $(this)[0].src;
+					//获取图片的alt  和  title 内容
+					$(".txt p span").html($(this)[0].alt);
+					//title
+					$(".txt a").attr("href",$(this)[0].title);
+//					console.log($(".txt a").attr());
+					
+				})
+				//鼠标touch图标改变
+				
+				$(".s_video").on("touchstart",function(){
+					$(this).css({
+						'background':'url(img/video_searchhover.png) no-repeat center',
+						'backgroundSize':'0.5rem'
+					})
+				})
+				
+				//鼠标touch图标改变
+				$(".s_video").on("touchend",function(){
+					$(this).css({
+						'background':'url(img/video_search.png) no-repeat center',
+						'backgroundSize':'0.5rem'
+					})
+				})
+			})
+			function apiMovie(){
+				//ajax向api传数据
+				$.get("/api/movie",{
+					//向服务器发送的数据
+					url:"http://op.juhe.cn/onebox/movie/pmovie",
+					dtype:"json",
+					key:"4200ddc0f6d8934c315b3b20fb575b97",
+					city:city
+				},function(res){
+					//console.log(res);
+					callback(res);
+				},"json");
+			}
+			apiMovie();
+		})
+	</script>
+</html>

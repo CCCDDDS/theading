@@ -43,6 +43,31 @@ var obj = res.result.data[0].data;
 			return false;
 		})
 		
+		//电影类型
+		var typedata = Oset.type.data;
+		//将电影类型放到空字符串
+		var Otype = "";
+//		console.log(typedata);
+		$.each(typedata,function(index,value){
+			Otype += value.name+"、"; 
+			
+		})
+//		console.log(Otype);//成功获取到电影类型
+		
+		//电影详情
+		var Ostory = Oset.story.data.storyBrief;
+		var OstoryLink = Oset.story.data.storyMoreLink;
+		
+//		var Ostory;
+//		$.each(story,function(index,value){
+//			Ostory = value.storyBrief;
+//
+//			console.log(Ostory);
+//		})
+//		console.log(arr3);
+//		for(var k=0,len= arr3.length;k<len;k++){
+//			B += 'alt="'+arr4[k]+'" title="'+arr3[k]+'"';
+//		}
 		//主演名称及连接
 		var star = Oset.star.data;
 		
@@ -82,14 +107,16 @@ var obj = res.result.data[0].data;
 		}
 		//console.log(A);//动态生成存放主演的a标签
 		
-		html +='<section><div class="cont"><div class="pic"><a href="'+Oset.m_iconlinkUrl+'"><img src="'+Oset.iconaddress+
-		'" alt="" /></a></div><div class="text"><h1>名称：<a href="'+Oset.m_iconlinkUrl+'">'+Oset.tvTitle+
+		html +='<section><div class="cont"><div class="pic"><a href="#"><img src="'+Oset.iconaddress+
+		'" alt="'+Ostory+'" title="'+OstoryLink+' "/></a></div><div class="text"><h1>名称：<a href="'+Oset.m_iconlinkUrl+'">'+Oset.tvTitle+
 		'</a></h1><h3>上映：<a href="javascript:;">'+Oset.playDate.data+
 		'</a></h3><h3>场数：<a href="javascript:;">'+Oset.subHead+
 		'</a></h3><h3>导演：<a href="javascript:;">'+Odir+
-		'</a></h3><h3>类型：<a href="javascript:;">冒险、家庭、奇幻</a></h3><h3 style="background:url('+Oset.iconaddress+') no-repeat ;">'+Oset.grade+
+		'</a></h3><h3>类型：<a href="javascript:;">'+Otype+'</a></h3><h3 style="background:url('+Oset.iconaddress+') no-repeat ;">'+Oset.grade+
 		'分</h3><h3>主演：'+A+'</h3></div></div></section>';
 	}
 	$(".content").html(html);
 //	console.log(obj);
 }
+
+
